@@ -14,7 +14,7 @@ namespace WebSite
         protected void Page_Load(object sender, EventArgs e)
         {
             Nomer.Text = Convert.ToString(Session["Nomer"]);
-            Data.Text = Convert.ToString(DateTime.Now);
+            Data.Text = Convert.ToString(Session["Data"]);
 
             if (DataBank.SummaN == 0)
             {
@@ -63,14 +63,29 @@ namespace WebSite
             {
                 //Label5.Text = exception.Message;
             }
-            Panel1.Visible = false;
+            //Panel1.Visible = false;
             Response.Redirect("order.aspx");
         }
 
         protected void TovarButton_Click(object sender, EventArgs e)
         {
             Panel1.Visible = true;
-            
+            if (DataBank.flagN == 0)
+            {
+                DataClasses1DataContext db1 = new DataClasses1DataContext();
+
+                Накладные накладная = new Накладные();
+
+                накладная.Номер_накладной = Convert.ToInt32(Session["Nomer"]);
+                накладная.Дата = Convert.ToDateTime(Session["Data"]);
+                накладная.Код_пользователя = Convert.ToInt32(Session["IDUser"]);
+                накладная.Код_контрагента = Convert.ToInt32(Session["IDKontr"]);
+                накладная.Код_типа = 5;
+                db1.Накладные.InsertOnSubmit(накладная);
+
+                db1.SubmitChanges();
+                DataBank.flagN = 1;
+            }
 
         }
 
@@ -87,17 +102,11 @@ namespace WebSite
 
                 int num = Convert.ToInt32(Session["Nomer"]);
 
-                var updateNakl = (from item in db.Накладные
+                var накладная = (from item in db.Накладные
                                   where item.Номер_накладной == num
                                   select item).Single();
-
-                updateNakl.Дата = DateTime.Now;
-                updateNakl.Сумма = DataBank.SummaN;
-                updateNakl.Статус = "Сохранена";
-                updateNakl.Код_пользователя = Convert.ToInt32(Session["IDUser"]);
-                updateNakl.Код_контрагента = Convert.ToInt32(Session["IDKontr"]);
-                updateNakl.Код_типа = 5;
-
+                накладная.Сумма = DataBank.SummaN;
+                накладная.Статус = "Сохранена";
                 db.SubmitChanges();
             }
             catch (Exception exception)
@@ -108,6 +117,7 @@ namespace WebSite
             Label6.Text = "Заявка успешно сохранена!";
             DataBank.SummaN = 0;
             DataBank.Counter = 0;
+            DataBank.flagN = 0;
         }
 
         protected void AllItems_Click(object sender, EventArgs e)

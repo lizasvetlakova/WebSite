@@ -110,7 +110,7 @@
                         <Columns>
                             <asp:BoundField DataField="Код_пользователя" HeaderText="Код_пользователя" SortExpression="Код_пользователя" Visible="False" />
                             <asp:BoundField DataField="Номер_накладной" HeaderText="№" ReadOnly="True" SortExpression="Номер_накладной" />
-                            <asp:BoundField DataField="Дата" HeaderText="Дата" SortExpression="Дата" />
+                            <asp:BoundField DataField="Дата" HeaderText="Дата" SortExpression="Дата" DataFormatString="{0:dd/MM/yyyy}" />
                             <asp:BoundField DataField="Сумма" HeaderText="Сумма" SortExpression="Сумма" />
                             <asp:BoundField DataField="Статус" HeaderText="Статус" SortExpression="Статус" />
                             <asp:CommandField ButtonType="Image" HeaderText="Просмотр" SelectImageUrl="~/image/eye.png" ShowSelectButton="True">

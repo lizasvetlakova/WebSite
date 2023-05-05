@@ -62,7 +62,7 @@
                 <asp:Label ID="ErrorLabel" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
             <td style="width: 150px">
-                <asp:Panel ID="Panel1" runat="server" style="margin-left: 51px" Width="180px" Visible="false" Height="250px">
+                <asp:Panel ID="Panel1" runat="server" style="margin-left: 51px" Width="180px" Visible="true" Height="250px">
                     Номенклатура<br /> 
                     <br />
                     Тип средства&nbsp;

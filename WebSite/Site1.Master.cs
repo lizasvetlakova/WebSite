@@ -110,16 +110,8 @@ namespace WebSite
                         orderby item.Номер_накладной descending
                         select item).First();
             Session["Nomer"] = nakl.Номер_накладной + 1;
-            
-            DataClasses1DataContext db1 = new DataClasses1DataContext();
+            Session["Data"] = DateTime.Now.ToShortDateString();
 
-            Накладные накладная = new Накладные();
-
-            накладная.Номер_накладной = Convert.ToInt32(Session["Nomer"]);
-            db.Накладные.InsertOnSubmit(накладная);
-            db.SubmitChanges();
-            
-            
             Response.Redirect("order.aspx");
         }
 

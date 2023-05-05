@@ -9,5 +9,6 @@ namespace WebSite
     {
         public static int Counter = 0;
         public static decimal SummaN = 0;
+        public static int flagN = 0;
     }
 }
