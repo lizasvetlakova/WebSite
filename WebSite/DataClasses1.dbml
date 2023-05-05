@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="sklad" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-6VRRQ0R;Initial Catalog=sklad;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="skladConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Контрагенты" Member="Контрагенты">
+    <Type Name="Контрагенты">
+      <Column Name="Код_контрагента" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Код_типа" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Короткое_имя" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Полное_имя" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="Адрес" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Телефон" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ИНН" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="КПП" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Расчетный_счет" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Банк" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="БИК" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Кор_счет" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Association Name="Контрагенты_Накладные" Member="Накладные" ThisKey="Код_контрагента" OtherKey="Код_контрагента" Type="Накладные" />
+      <Association Name="Контрагенты_Поставки" Member="Поставки" ThisKey="Код_контрагента" OtherKey="Код_контрагента" Type="Поставки" />
+      <Association Name="Контрагенты_Пользователи" Member="Пользователи" ThisKey="Код_контрагента" OtherKey="Код_контрагента" Type="Пользователи" />
+      <Association Name="Типы_контрагентов_Контрагенты" Member="Типы_контрагентов" ThisKey="Код_типа" OtherKey="Код_типа" Type="Типы_контрагентов" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Товары" Member="Товары">
+    <Type Name="Товары">
+      <Column Name="Код_товара" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Наименование" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Артикул" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Объём" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Ед_измерения" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Цена" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Количество" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Код_категории" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Товары_Поставки" Member="Поставки" ThisKey="Код_товара" OtherKey="Код_товара" Type="Поставки" />
+      <Association Name="Товары_Содержание_накладной" Member="Содержание_накладной" ThisKey="Код_товара" OtherKey="Код_товара" Type="Содержание_накладной" />
+      <Association Name="Категории_Товары" Member="Категории" ThisKey="Код_категории" OtherKey="Код_категории" Type="Категории" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Накладные" Member="Накладные">
+    <Type Name="Накладные">
+      <Column Name="Номер_накладной" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Дата" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Сумма" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Статус" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Код_пользователя" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Код_контрагента" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Код_типа" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Накладные_Содержание_накладной" Member="Содержание_накладной" ThisKey="Номер_накладной" OtherKey="Номер_накладной" Type="Содержание_накладной" />
+      <Association Name="Контрагенты_Накладные" Member="Контрагенты" ThisKey="Код_контрагента" OtherKey="Код_контрагента" Type="Контрагенты" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Типы_накладной_Накладные" Member="Типы_накладной" ThisKey="Код_типа" OtherKey="Код_типа" Type="Типы_накладной" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Пользователи_Накладные" Member="Пользователи" ThisKey="Код_пользователя" OtherKey="Код_пользователя" Type="Пользователи" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Новости" Member="Новости">
+    <Type Name="Новости">
+      <Column Name="Код_новости" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Дата" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Новость" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Типы_контрагентов" Member="Типы_контрагентов">
+    <Type Name="Типы_контрагентов">
+      <Column Name="Код_типа" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Название_типа" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Типы_контрагентов_Контрагенты" Member="Контрагенты" ThisKey="Код_типа" OtherKey="Код_типа" Type="Контрагенты" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Типы_накладной" Member="Типы_накладной">
+    <Type Name="Типы_накладной">
+      <Column Name="Код_типа" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Название_накладной" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Типы_накладной_Накладные" Member="Накладные" ThisKey="Код_типа" OtherKey="Код_типа" Type="Накладные" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Поставки" Member="Поставки">
+    <Type Name="Поставки">
+      <Column Name="Код_товара" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Код_контрагента" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Дата" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Контрагенты_Поставки" Member="Контрагенты" ThisKey="Код_контрагента" OtherKey="Код_контрагента" Type="Контрагенты" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Товары_Поставки" Member="Товары" ThisKey="Код_товара" OtherKey="Код_товара" Type="Товары" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Содержание_накладной" Member="Содержание_накладной">
+    <Type Name="Содержание_накладной">
+      <Column Name="Номер_накладной" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Код_товара" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Номер_записи" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Количество" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Цена" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Сумма" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Накладные_Содержание_накладной" Member="Накладные" ThisKey="Номер_накладной" OtherKey="Номер_накладной" Type="Накладные" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Товары_Содержание_накладной" Member="Товары" ThisKey="Код_товара" OtherKey="Код_товара" Type="Товары" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Категории" Member="Категории">
+    <Type Name="Категории">
+      <Column Name="Код_категории" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Название_категории" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Категории_Товары" Member="Товары" ThisKey="Код_категории" OtherKey="Код_категории" Type="Товары" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Пользователи" Member="Пользователи">
+    <Type Name="Пользователи">
+      <Column Name="Код_пользователя" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ФИО" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Телефон" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Логин" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Пароль" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Роль" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Код_контрагента" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Пользователи_Накладные" Member="Накладные" ThisKey="Код_пользователя" OtherKey="Код_пользователя" Type="Накладные" />
+      <Association Name="Контрагенты_Пользователи" Member="Контрагенты" ThisKey="Код_контрагента" OtherKey="Код_контрагента" Type="Контрагенты" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Содержание" Member="Содержание">
+    <Type Name="Содержание">
+      <Column Name="Номер_накладной" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Код_товара" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Наименование" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Количество" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Цена" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Сумма" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
