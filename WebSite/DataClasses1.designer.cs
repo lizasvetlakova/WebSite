@@ -48,9 +48,6 @@ namespace WebSite
     partial void InsertТипы_накладной(Типы_накладной instance);
     partial void UpdateТипы_накладной(Типы_накладной instance);
     partial void DeleteТипы_накладной(Типы_накладной instance);
-    partial void InsertПоставки(Поставки instance);
-    partial void UpdateПоставки(Поставки instance);
-    partial void DeleteПоставки(Поставки instance);
     partial void InsertСодержание_накладной(Содержание_накладной instance);
     partial void UpdateСодержание_накладной(Содержание_накладной instance);
     partial void DeleteСодержание_накладной(Содержание_накладной instance);
@@ -140,14 +137,6 @@ namespace WebSite
 			}
 		}
 		
-		public System.Data.Linq.Table<Поставки> Поставки
-		{
-			get
-			{
-				return this.GetTable<Поставки>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Содержание_накладной> Содержание_накладной
 		{
 			get
@@ -164,19 +153,19 @@ namespace WebSite
 			}
 		}
 		
-		public System.Data.Linq.Table<Пользователи> Пользователи
-		{
-			get
-			{
-				return this.GetTable<Пользователи>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Содержание> Содержание
 		{
 			get
 			{
 				return this.GetTable<Содержание>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Пользователи> Пользователи
+		{
+			get
+			{
+				return this.GetTable<Пользователи>();
 			}
 		}
 	}
@@ -213,10 +202,6 @@ namespace WebSite
 		
 		private EntitySet<Накладные> _Накладные;
 		
-		private EntitySet<Поставки> _Поставки;
-		
-		private EntitySet<Пользователи> _Пользователи;
-		
 		private EntityRef<Типы_контрагентов> _Типы_контрагентов;
 		
     #region Определения метода расширяемости
@@ -252,8 +237,6 @@ namespace WebSite
 		public Контрагенты()
 		{
 			this._Накладные = new EntitySet<Накладные>(new Action<Накладные>(this.attach_Накладные), new Action<Накладные>(this.detach_Накладные));
-			this._Поставки = new EntitySet<Поставки>(new Action<Поставки>(this.attach_Поставки), new Action<Поставки>(this.detach_Поставки));
-			this._Пользователи = new EntitySet<Пользователи>(new Action<Пользователи>(this.attach_Пользователи), new Action<Пользователи>(this.detach_Пользователи));
 			this._Типы_контрагентов = default(EntityRef<Типы_контрагентов>);
 			OnCreated();
 		}
@@ -515,32 +498,6 @@ namespace WebSite
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Контрагенты_Поставки", Storage="_Поставки", ThisKey="Код_контрагента", OtherKey="Код_контрагента")]
-		public EntitySet<Поставки> Поставки
-		{
-			get
-			{
-				return this._Поставки;
-			}
-			set
-			{
-				this._Поставки.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Контрагенты_Пользователи", Storage="_Пользователи", ThisKey="Код_контрагента", OtherKey="Код_контрагента")]
-		public EntitySet<Пользователи> Пользователи
-		{
-			get
-			{
-				return this._Пользователи;
-			}
-			set
-			{
-				this._Пользователи.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Типы_контрагентов_Контрагенты", Storage="_Типы_контрагентов", ThisKey="Код_типа", OtherKey="Код_типа", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Типы_контрагентов Типы_контрагентов
 		{
@@ -606,30 +563,6 @@ namespace WebSite
 			this.SendPropertyChanging();
 			entity.Контрагенты = null;
 		}
-		
-		private void attach_Поставки(Поставки entity)
-		{
-			this.SendPropertyChanging();
-			entity.Контрагенты = this;
-		}
-		
-		private void detach_Поставки(Поставки entity)
-		{
-			this.SendPropertyChanging();
-			entity.Контрагенты = null;
-		}
-		
-		private void attach_Пользователи(Пользователи entity)
-		{
-			this.SendPropertyChanging();
-			entity.Контрагенты = this;
-		}
-		
-		private void detach_Пользователи(Пользователи entity)
-		{
-			this.SendPropertyChanging();
-			entity.Контрагенты = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Товары")]
@@ -653,8 +586,6 @@ namespace WebSite
 		private System.Nullable<short> _Количество;
 		
 		private System.Nullable<int> _Код_категории;
-		
-		private EntitySet<Поставки> _Поставки;
 		
 		private EntitySet<Содержание_накладной> _Содержание_накладной;
 		
@@ -684,7 +615,6 @@ namespace WebSite
 		
 		public Товары()
 		{
-			this._Поставки = new EntitySet<Поставки>(new Action<Поставки>(this.attach_Поставки), new Action<Поставки>(this.detach_Поставки));
 			this._Содержание_накладной = new EntitySet<Содержание_накладной>(new Action<Содержание_накладной>(this.attach_Содержание_накладной), new Action<Содержание_накладной>(this.detach_Содержание_накладной));
 			this._Категории = default(EntityRef<Категории>);
 			OnCreated();
@@ -854,19 +784,6 @@ namespace WebSite
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Товары_Поставки", Storage="_Поставки", ThisKey="Код_товара", OtherKey="Код_товара")]
-		public EntitySet<Поставки> Поставки
-		{
-			get
-			{
-				return this._Поставки;
-			}
-			set
-			{
-				this._Поставки.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Товары_Содержание_накладной", Storage="_Содержание_накладной", ThisKey="Код_товара", OtherKey="Код_товара")]
 		public EntitySet<Содержание_накладной> Содержание_накладной
 		{
@@ -932,18 +849,6 @@ namespace WebSite
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Поставки(Поставки entity)
-		{
-			this.SendPropertyChanging();
-			entity.Товары = this;
-		}
-		
-		private void detach_Поставки(Поставки entity)
-		{
-			this.SendPropertyChanging();
-			entity.Товары = null;
 		}
 		
 		private void attach_Содержание_накладной(Содержание_накладной entity)
@@ -1249,7 +1154,7 @@ namespace WebSite
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Пользователи_Накладные", Storage="_Пользователи", ThisKey="Код_пользователя", OtherKey="Код_пользователя", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Пользователи1_Накладные", Storage="_Пользователи", ThisKey="Код_пользователя", OtherKey="Код_пользователя", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Пользователи Пользователи
 		{
 			get
@@ -1654,198 +1559,6 @@ namespace WebSite
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Поставки")]
-	public partial class Поставки : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Код_товара;
-		
-		private int _Код_контрагента;
-		
-		private System.Nullable<System.DateTime> _Дата;
-		
-		private EntityRef<Контрагенты> _Контрагенты;
-		
-		private EntityRef<Товары> _Товары;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnКод_товараChanging(int value);
-    partial void OnКод_товараChanged();
-    partial void OnКод_контрагентаChanging(int value);
-    partial void OnКод_контрагентаChanged();
-    partial void OnДатаChanging(System.Nullable<System.DateTime> value);
-    partial void OnДатаChanged();
-    #endregion
-		
-		public Поставки()
-		{
-			this._Контрагенты = default(EntityRef<Контрагенты>);
-			this._Товары = default(EntityRef<Товары>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Код_товара", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Код_товара
-		{
-			get
-			{
-				return this._Код_товара;
-			}
-			set
-			{
-				if ((this._Код_товара != value))
-				{
-					if (this._Товары.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnКод_товараChanging(value);
-					this.SendPropertyChanging();
-					this._Код_товара = value;
-					this.SendPropertyChanged("Код_товара");
-					this.OnКод_товараChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Код_контрагента", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Код_контрагента
-		{
-			get
-			{
-				return this._Код_контрагента;
-			}
-			set
-			{
-				if ((this._Код_контрагента != value))
-				{
-					if (this._Контрагенты.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnКод_контрагентаChanging(value);
-					this.SendPropertyChanging();
-					this._Код_контрагента = value;
-					this.SendPropertyChanged("Код_контрагента");
-					this.OnКод_контрагентаChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Дата", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Дата
-		{
-			get
-			{
-				return this._Дата;
-			}
-			set
-			{
-				if ((this._Дата != value))
-				{
-					this.OnДатаChanging(value);
-					this.SendPropertyChanging();
-					this._Дата = value;
-					this.SendPropertyChanged("Дата");
-					this.OnДатаChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Контрагенты_Поставки", Storage="_Контрагенты", ThisKey="Код_контрагента", OtherKey="Код_контрагента", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Контрагенты Контрагенты
-		{
-			get
-			{
-				return this._Контрагенты.Entity;
-			}
-			set
-			{
-				Контрагенты previousValue = this._Контрагенты.Entity;
-				if (((previousValue != value) 
-							|| (this._Контрагенты.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Контрагенты.Entity = null;
-						previousValue.Поставки.Remove(this);
-					}
-					this._Контрагенты.Entity = value;
-					if ((value != null))
-					{
-						value.Поставки.Add(this);
-						this._Код_контрагента = value.Код_контрагента;
-					}
-					else
-					{
-						this._Код_контрагента = default(int);
-					}
-					this.SendPropertyChanged("Контрагенты");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Товары_Поставки", Storage="_Товары", ThisKey="Код_товара", OtherKey="Код_товара", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Товары Товары
-		{
-			get
-			{
-				return this._Товары.Entity;
-			}
-			set
-			{
-				Товары previousValue = this._Товары.Entity;
-				if (((previousValue != value) 
-							|| (this._Товары.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Товары.Entity = null;
-						previousValue.Поставки.Remove(this);
-					}
-					this._Товары.Entity = value;
-					if ((value != null))
-					{
-						value.Поставки.Add(this);
-						this._Код_товара = value.Код_товара;
-					}
-					else
-					{
-						this._Код_товара = default(int);
-					}
-					this.SendPropertyChanged("Товары");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Содержание_накладной")]
 	public partial class Содержание_накладной : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2224,6 +1937,123 @@ namespace WebSite
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Содержание")]
+	public partial class Содержание
+	{
+		
+		private int _Номер_накладной;
+		
+		private int _Код_товара;
+		
+		private string _Наименование;
+		
+		private System.Nullable<short> _Количество;
+		
+		private System.Nullable<decimal> _Цена;
+		
+		private System.Nullable<decimal> _Сумма;
+		
+		public Содержание()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Номер_накладной", DbType="Int NOT NULL")]
+		public int Номер_накладной
+		{
+			get
+			{
+				return this._Номер_накладной;
+			}
+			set
+			{
+				if ((this._Номер_накладной != value))
+				{
+					this._Номер_накладной = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Код_товара", DbType="Int NOT NULL")]
+		public int Код_товара
+		{
+			get
+			{
+				return this._Код_товара;
+			}
+			set
+			{
+				if ((this._Код_товара != value))
+				{
+					this._Код_товара = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Наименование", DbType="VarChar(70)")]
+		public string Наименование
+		{
+			get
+			{
+				return this._Наименование;
+			}
+			set
+			{
+				if ((this._Наименование != value))
+				{
+					this._Наименование = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Количество", DbType="SmallInt")]
+		public System.Nullable<short> Количество
+		{
+			get
+			{
+				return this._Количество;
+			}
+			set
+			{
+				if ((this._Количество != value))
+				{
+					this._Количество = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Цена", DbType="Money")]
+		public System.Nullable<decimal> Цена
+		{
+			get
+			{
+				return this._Цена;
+			}
+			set
+			{
+				if ((this._Цена != value))
+				{
+					this._Цена = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Сумма", DbType="Money")]
+		public System.Nullable<decimal> Сумма
+		{
+			get
+			{
+				return this._Сумма;
+			}
+			set
+			{
+				if ((this._Сумма != value))
+				{
+					this._Сумма = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Пользователи")]
 	public partial class Пользователи : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2242,11 +2072,7 @@ namespace WebSite
 		
 		private System.Nullable<int> _Роль;
 		
-		private System.Nullable<int> _Код_контрагента;
-		
 		private EntitySet<Накладные> _Накладные;
-		
-		private EntityRef<Контрагенты> _Контрагенты;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -2264,14 +2090,11 @@ namespace WebSite
     partial void OnПарольChanged();
     partial void OnРольChanging(System.Nullable<int> value);
     partial void OnРольChanged();
-    partial void OnКод_контрагентаChanging(System.Nullable<int> value);
-    partial void OnКод_контрагентаChanged();
     #endregion
 		
 		public Пользователи()
 		{
 			this._Накладные = new EntitySet<Накладные>(new Action<Накладные>(this.attach_Накладные), new Action<Накладные>(this.detach_Накладные));
-			this._Контрагенты = default(EntityRef<Контрагенты>);
 			OnCreated();
 		}
 		
@@ -2395,31 +2218,7 @@ namespace WebSite
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Код_контрагента", DbType="Int")]
-		public System.Nullable<int> Код_контрагента
-		{
-			get
-			{
-				return this._Код_контрагента;
-			}
-			set
-			{
-				if ((this._Код_контрагента != value))
-				{
-					if (this._Контрагенты.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnКод_контрагентаChanging(value);
-					this.SendPropertyChanging();
-					this._Код_контрагента = value;
-					this.SendPropertyChanged("Код_контрагента");
-					this.OnКод_контрагентаChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Пользователи_Накладные", Storage="_Накладные", ThisKey="Код_пользователя", OtherKey="Код_пользователя")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Пользователи1_Накладные", Storage="_Накладные", ThisKey="Код_пользователя", OtherKey="Код_пользователя")]
 		public EntitySet<Накладные> Накладные
 		{
 			get
@@ -2429,40 +2228,6 @@ namespace WebSite
 			set
 			{
 				this._Накладные.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Контрагенты_Пользователи", Storage="_Контрагенты", ThisKey="Код_контрагента", OtherKey="Код_контрагента", IsForeignKey=true)]
-		public Контрагенты Контрагенты
-		{
-			get
-			{
-				return this._Контрагенты.Entity;
-			}
-			set
-			{
-				Контрагенты previousValue = this._Контрагенты.Entity;
-				if (((previousValue != value) 
-							|| (this._Контрагенты.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Контрагенты.Entity = null;
-						previousValue.Пользователи.Remove(this);
-					}
-					this._Контрагенты.Entity = value;
-					if ((value != null))
-					{
-						value.Пользователи.Add(this);
-						this._Код_контрагента = value.Код_контрагента;
-					}
-					else
-					{
-						this._Код_контрагента = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Контрагенты");
-				}
 			}
 		}
 		
@@ -2496,123 +2261,6 @@ namespace WebSite
 		{
 			this.SendPropertyChanging();
 			entity.Пользователи = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Содержание")]
-	public partial class Содержание
-	{
-		
-		private int _Номер_накладной;
-		
-		private int _Код_товара;
-		
-		private string _Наименование;
-		
-		private System.Nullable<short> _Количество;
-		
-		private System.Nullable<decimal> _Цена;
-		
-		private System.Nullable<decimal> _Сумма;
-		
-		public Содержание()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Номер_накладной", DbType="Int NOT NULL")]
-		public int Номер_накладной
-		{
-			get
-			{
-				return this._Номер_накладной;
-			}
-			set
-			{
-				if ((this._Номер_накладной != value))
-				{
-					this._Номер_накладной = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Код_товара", DbType="Int NOT NULL")]
-		public int Код_товара
-		{
-			get
-			{
-				return this._Код_товара;
-			}
-			set
-			{
-				if ((this._Код_товара != value))
-				{
-					this._Код_товара = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Наименование", DbType="VarChar(70)")]
-		public string Наименование
-		{
-			get
-			{
-				return this._Наименование;
-			}
-			set
-			{
-				if ((this._Наименование != value))
-				{
-					this._Наименование = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Количество", DbType="SmallInt")]
-		public System.Nullable<short> Количество
-		{
-			get
-			{
-				return this._Количество;
-			}
-			set
-			{
-				if ((this._Количество != value))
-				{
-					this._Количество = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Цена", DbType="Money")]
-		public System.Nullable<decimal> Цена
-		{
-			get
-			{
-				return this._Цена;
-			}
-			set
-			{
-				if ((this._Цена != value))
-				{
-					this._Цена = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Сумма", DbType="Money")]
-		public System.Nullable<decimal> Сумма
-		{
-			get
-			{
-				return this._Сумма;
-			}
-			set
-			{
-				if ((this._Сумма != value))
-				{
-					this._Сумма = value;
-				}
-			}
 		}
 	}
 }

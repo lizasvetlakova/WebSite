@@ -75,8 +75,7 @@ namespace WebSite
                 idUser = selectedUser.Код_пользователя;
                 Session["IDUser"] = idUser;
                 Session["NameUser"] = nameUser;
-                Session["is_admin"] = selectedUser.Роль;
-                Session["IDKontr"] = selectedUser.Код_контрагента;
+                Session["IDKontr"] = Session["is_admin"] = selectedUser.Роль;
                 ShowHello(nameUser);
 
             }

@@ -23,7 +23,7 @@
             Пароль:
             <asp:TextBox ID="ПарольTextBox" runat="server" Text='<%# Bind("Пароль") %>' />
             <br />
-            Организация:&nbsp;<asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSourceK2" DataTextField="Короткое_имя" DataValueField="Код_контрагента" SelectedValue='<%# Bind("Код_контрагента") %>' Width="168px">
+            Организация:&nbsp;<asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSourceK2" DataTextField="Короткое_имя" DataValueField="Код_контрагента" Width="168px">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSourceK2" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT [Код_контрагента], [Короткое_имя] FROM [Контрагенты] WHERE ([Код_контрагента] = @Код_контрагента)">
                 <SelectParameters>
@@ -68,7 +68,7 @@
             Пароль:
             <asp:Label ID="ПарольLabel" runat="server" Text='<%# Bind("Пароль") %>' />
             <br />
-            Организация:&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSourceK" DataTextField="Короткое_имя" DataValueField="Код_контрагента" SelectedValue='<%# Bind("Код_контрагента") %>' Width="166px">
+            Организация:&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSourceK" DataTextField="Короткое_имя" DataValueField="Код_контрагента" Width="166px">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSourceK" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT [Код_контрагента], [Короткое_имя] FROM [Контрагенты] WHERE ([Код_контрагента] = @Код_контрагента)">
                 <SelectParameters>

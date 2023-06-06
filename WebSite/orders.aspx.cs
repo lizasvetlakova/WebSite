@@ -91,6 +91,18 @@ namespace WebSite
                 Label2.Text = "Успешное обновление!";
                 //Response.Redirect("orders.aspx");
             }
+            else if(e.CommandName == "DelCommand")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow selectedRow = GridView2.Rows[index];
+                int kod = Convert.ToInt32(selectedRow.Cells[3].Text);
+                int num = Convert.ToInt32(Session["IDN"]);
+
+                string crit = "DELETE FROM Содержание_накладной WHERE Номер_накладной = " + num + "and Код_товара = " + kod;
+                DataClasses1DataContext db = new DataClasses1DataContext();
+                SqlDataSource3.SelectCommand = crit;
+                GridView2.DataBind();
+            }
         }
     }
 }

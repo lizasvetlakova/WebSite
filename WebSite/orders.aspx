@@ -59,6 +59,9 @@
                 <asp:ButtonField ButtonType="Image" CommandName="KolCommand" ImageUrl="~/image/save.JPG" Text="Кнопка">
                 <ControlStyle Height="25px" Width="25px" />
                 </asp:ButtonField>
+                <asp:ButtonField ButtonType="Image" CommandName="DelCommand" ImageUrl="~/image/del.JPG" Text="Кнопка">
+                <ControlStyle Height="25px" Width="25px" />
+                </asp:ButtonField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

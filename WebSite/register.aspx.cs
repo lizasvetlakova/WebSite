@@ -28,8 +28,7 @@ namespace WebSite
                     пользователь.Телефон = PhoneTextBox.Text;
                     пользователь.Логин = EmailTextBox.Text;
                     пользователь.Пароль = PasswordTextBox.Text;
-                    пользователь.Роль = 0;
-                    пользователь.Код_контрагента = Convert.ToInt32(OrgList.SelectedValue);
+                    пользователь.Роль = Convert.ToInt32(OrgList.SelectedValue);
 
                     db.Пользователи.InsertOnSubmit(пользователь);
                     db.SubmitChanges();
