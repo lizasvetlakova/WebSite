@@ -117,12 +117,12 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Каталог</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Номенклатура</asp:LinkButton>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:LinkButton ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">Склад</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">Товары</asp:LinkButton>
                                 </td>
                             </tr>
                             <tr>
