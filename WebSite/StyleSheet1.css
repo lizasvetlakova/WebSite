@@ -8,10 +8,9 @@ body {
     height: 100vh;
     font-family: 'Lexend Deca', sans-serif;
     color: #878787;
-
     --menu-item-size: 50px; /* высота вкладки */
     --green-color: #329680;
-    --blue-color: #099c95;
+    --blue-color: #5D7B9D;
     --dark-green-color: #175b52;
     --white-color: #FFF;
     --gray-color: #EDEDED;
@@ -25,27 +24,32 @@ body {
     width: var(--container-width);
     height: var(--container-height);
     margin-left: -400px;
-    margin-top: -250px;
-    top: 35%; /* положение контейнера */
-    left: 43%;
+    margin-top: 0px;
+    top: 25%; /* положение контейнера */
+    left: 42%;
     position: absolute;
     z-index: 1;
 }
 
-.one { /* Внешний вид кнопки */
-    color: #524E49; /* Цвет текста */
-    background: #fdeaa8; /* Фоновый цвет */
-    padding: 10px; /* Минимальный отступ текста от границ кнопки. Определяет размер кнопки */
-    font-size: 20px; /* Размер текста */
+.buton { /* Внешний вид кнопки */
+    width: 100px;
+    height: 30px;
+    color: black; /* Цвет текста */
+    /* background: #fdeaa8; Фоновый цвет */
+    border-color: var(--blue-color);
+    border-width: 3px;
+    padding: 3px; /* Минимальный отступ текста от границ кнопки. Определяет размер кнопки */
+    font-size: 16px; /* Размер текста */
     border-radius: 5px; /* Радиус закругления уголков */
     box-shadow: 0px 1px 3px; /* Тень */
 }
 
+
 .main-menu {
     display: flex;
     list-style: none;
-    margin-left: 200px; /* положение панели навигации */
-    margin-top: -18px;
+    margin-left: 390px; /* положение панели навигации */
+    margin-top: -40px;
     padding: 0.6em 0 0 0;
 }
 
@@ -60,13 +64,49 @@ body {
     background: var(--green-color);
     color: var(--dark-green-color);
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     user-select: none;
 }
 
 /* Смещение в вкладке */
 .main-menu i {
     margin-right: 33px;
+}
+
+
+h1 {
+    font-size: 115%;
+    margin: 1em 2em;
+    padding: 0;
+    position: relative;
+    color: black;
+}
+
+h2 {
+    font-size: 36px;
+    margin: 1em 2em;
+    padding: 0;
+    position: relative;
+    top: -20px;
+    left: 0px;
+    color: #E9E7E2;
+    text-align: center;
+}
+
+h3 {
+    color: white;
+    font-size: 18px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+    padding: 0 0 0 3em;
+    font-size: 16px;
+    color: black;
 }
 
 .main-menu > li:not(.with-submenu) {
@@ -118,38 +158,6 @@ article {
    box-shadow: 5px 5px 5px #CCC;
    position: relative;
    z-index: -1;
-}
-
-h1 {
-    font-size: 115%;
-    margin: 1em 2em;
-    padding: 0;
-    position: relative;
-    color: #777;
-}
-
-h2 {
-    font-size: 36px;
-    margin: 1em 2em;
-    padding: 0;
-    position: relative;
-    color: #099c95;
-    text-align: center;
-}
-
-h3 {
-    color: white;
-    font-size: 18px;
-}
-
-.link {
-    text-decoration: none;
-    color: white;
-}
-
-.content {
-    padding: 0 0 0 3em;
-    font-size: 16px;
 }
 
 .submenu {

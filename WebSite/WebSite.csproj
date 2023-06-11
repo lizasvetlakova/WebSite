@@ -72,10 +72,12 @@
     <Content Include="image\check.png" />
     <Content Include="image\del.jpg" />
     <Content Include="image\eye.png" />
-    <Content Include="image\logo.jpg" />
+    <Content Include="image\logo2.jpg" />
+    <Content Include="image\logo3.jpg" />
     <Content Include="image\red.jpg" />
     <Content Include="image\save.JPG" />
     <Content Include="index.aspx" />
+    <Content Include="index1.aspx" />
     <Content Include="indexM.aspx" />
     <Content Include="katalog.aspx" />
     <Content Include="lk.aspx" />
@@ -87,7 +89,6 @@
     <Content Include="StyleSheet1.css" />
     <Content Include="tovar.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBank.cs" />
@@ -109,6 +110,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index1.aspx.cs">
+      <DependentUpon>index1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index1.aspx.designer.cs">
+      <DependentUpon>index1.aspx</DependentUpon>
     </Compile>
     <Compile Include="indexM.aspx.cs">
       <DependentUpon>indexM.aspx</DependentUpon>
@@ -194,13 +202,6 @@
     </Compile>
     <Compile Include="tovar.aspx.designer.cs">
       <DependentUpon>tovar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -7,12 +7,52 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link rel="stylesheet" href="StyleSheet1.css">
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            position: relative;
+            top: 5px; 
+            left: 30px;
+            width: 100px;
+            height: 100px;
+        }
+        .auto-style3 {
+            text-align: right;
+            position: relative;
+            top: -5px; 
+            left: -30px;
+        }
+        .auto-style4 {
+            text-align: right;
+            position: relative;
+            top: 15px; 
+            left: -30px;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-       <div class="container">
-        <h2>Косметикс</h2>
-        <nav class="menu">
+       
+        
+           <table class="auto-style1">
+               <tr>
+                   <td rowspan="2"><asp:Image ID="Image1" runat="server" ImageUrl="~/image/logo3.jpg" CssClass="auto-style2" /></td>
+                   <td rowspan="2"><h2>Косметикс</h2></td>
+                   <td class="auto-style4">
+                       <asp:Label ID="FIO" runat="server" Text="Bdfyjdf FF"></asp:Label>
+                   </td>
+               </tr>
+               <tr>
+                   <td class="auto-style3"><asp:Button ID="LogoutButton" runat="server" Text="Выйти" CssClass= "buton" OnClick="LogoutButton_Click" /></td>
+               </tr>
+               <tr>
+                   <td colspan="3">
+
+                       <nav class="menu">
             <ul class="main-menu">
                 <li class="active"><i class="fa"></i>
                     <asp:LinkButton ID="Home" runat="server" CssClass="link" OnClick="Home_Click">Главная</asp:LinkButton>
@@ -27,6 +67,12 @@
                 
             </ul>
         </nav>
+
+                   </td>
+               </tr>
+           </table>
+        
+        <div class="container">
            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                </asp:ContentPlaceHolder>
     </div>

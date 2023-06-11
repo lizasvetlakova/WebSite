@@ -11,7 +11,7 @@ namespace WebSite
 {
 
 
-    public partial class WebForm1
+    public partial class index1
     {
 
         /// <summary>

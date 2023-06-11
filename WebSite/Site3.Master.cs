@@ -14,6 +14,11 @@ namespace WebSite
 
         }
 
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            //ShowLogin();
+        }
         protected void Home_Click(object sender, EventArgs e)
         {
             Response.Redirect("index.aspx");
