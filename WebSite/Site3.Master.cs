@@ -11,27 +11,28 @@ namespace WebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            long idUser = Convert.ToInt64(Session["IDUser"]);
+            string nameUser = Convert.ToString(Session["NameUser"]);
+            if (idUser != 0)
+            {
+                FIO.Text = nameUser;
 
+            }
         }
 
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
             Session.Clear();
-            //ShowLogin();
+            Response.Redirect("login.aspx");
         }
         protected void Home_Click(object sender, EventArgs e)
         {
-            Response.Redirect("index.aspx");
+            Response.Redirect("index1.aspx");
         }
 
         protected void Katalog_Click(object sender, EventArgs e)
         {
             Response.Redirect("katalog.aspx");
-        }
-
-        protected void Order_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("order.aspx");
         }
 
         protected void MyOrders_Click(object sender, EventArgs e)

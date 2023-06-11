@@ -81,6 +81,7 @@
     <Content Include="indexM.aspx" />
     <Content Include="katalog.aspx" />
     <Content Include="lk.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="nakl.aspx" />
     <Content Include="order.aspx" />
     <Content Include="orders.aspx" />
@@ -138,6 +139,13 @@
     </Compile>
     <Compile Include="lk.aspx.designer.cs">
       <DependentUpon>lk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="nakl.aspx.cs">
       <DependentUpon>nakl.aspx</DependentUpon>
