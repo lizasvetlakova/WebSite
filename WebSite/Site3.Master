@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site3.master.cs" Inherits="WebSite.Site3" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="StyleSheet1.css">
+</head>
+<body>
+    <form id="form1" runat="server">
+       <div class="container">
+        <h2>Косметикс</h2>
+        <nav class="menu">
+            <ul class="main-menu">
+                <li class="active"><i class="fa"></i>
+                    <asp:LinkButton ID="Home" runat="server" CssClass="link" OnClick="Home_Click">Главная</asp:LinkButton>
+                </li>
+                <li class="active"><i class="fa"></i>
+                    <asp:LinkButton ID="Katalog" runat="server" CssClass="link" OnClick="Katalog_Click">Каталог</asp:LinkButton>
+
+                <li class="active"><i class="fa"></i>
+                    <asp:LinkButton ID="My" runat="server" CssClass="link" OnClick="MyOrders_Click">Заявки</asp:LinkButton>
+
+                </li>
+                
+            </ul>
+        </nav>
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+               </asp:ContentPlaceHolder>
+    </div>
+
+    </form>
+</body>
+</html>
