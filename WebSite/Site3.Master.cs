@@ -35,9 +35,9 @@ namespace WebSite
             Response.Redirect("katalog.aspx");
         }
 
-        protected void MyOrders_Click(object sender, EventArgs e)
+        protected void Orders_Click(object sender, EventArgs e)
         {
-            Response.Redirect("katalog.aspx");
+            Response.Redirect("lk.aspx");
         }
     }
 }

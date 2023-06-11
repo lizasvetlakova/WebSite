@@ -17,13 +17,13 @@ namespace WebSite
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Panel1.Visible = true;
             Session["IDN"] = this.GridView1.SelectedValue;
+            Response.Redirect("checkOrder.aspx");
         }
 
-        protected void OrdersButton_Click(object sender, EventArgs e)
+        protected void OrderButton_Click(object sender, EventArgs e)
         {
-            GridView1.Visible = true;
+            
         }
     }
 }

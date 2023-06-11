@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="checkOrder.aspx" />
     <Content Include="documents.aspx" />
     <Content Include="image\check.png" />
     <Content Include="image\del.jpg" />
@@ -92,6 +93,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="checkOrder.aspx.cs">
+      <DependentUpon>checkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkOrder.aspx.designer.cs">
+      <DependentUpon>checkOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataBank.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>

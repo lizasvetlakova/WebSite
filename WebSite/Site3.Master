@@ -61,7 +61,7 @@
                     <asp:LinkButton ID="Katalog" runat="server" CssClass="link" OnClick="Katalog_Click">Каталог</asp:LinkButton>
 
                 <li class="active"><i class="fa"></i>
-                    <asp:LinkButton ID="My" runat="server" CssClass="link" OnClick="MyOrders_Click">Заявки</asp:LinkButton>
+                    <asp:LinkButton ID="My" runat="server" CssClass="link" OnClick="Orders_Click">Заявки</asp:LinkButton>
 
                 </li>
                 
@@ -72,10 +72,9 @@
                </tr>
            </table>
         
-        <div class="container">
+
            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                </asp:ContentPlaceHolder>
-    </div>
 
     </form>
 </body>

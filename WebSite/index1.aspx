@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     
-    <div class="content">
+    <div class="container">
+        <div class="content">
         <h1>Косметикс - уходовая косметика для кожи</h1>
         <p>Добро пожаловать в складскую систему косметической продукции Косметикс!
             </p>
@@ -92,5 +93,6 @@
         <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="WebSite.DataClasses1DataContext" EntityTypeName="" OrderBy="Дата" Select="new (Дата, Новость)" TableName="Новости">
         </asp:LinqDataSource>
     </p>
+            </div>
     </div>
 </asp:Content>

@@ -11,7 +11,7 @@ namespace WebSite
 {
 
 
-    public partial class lk
+    public partial class checkOrder
     {
 
         /// <summary>
@@ -24,31 +24,31 @@ namespace WebSite
         protected global::System.Web.UI.WebControls.Button OrdersButton;
 
         /// <summary>
-        /// GridView1 элемент управления.
+        /// Nomer элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label Nomer;
 
         /// <summary>
-        /// SqlDataSource1 элемент управления.
+        /// Data элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label Data;
 
         /// <summary>
-        /// Panel1 элемент управления.
+        /// Сумма элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Label Сумма;
 
         /// <summary>
         /// GridView2 элемент управления.

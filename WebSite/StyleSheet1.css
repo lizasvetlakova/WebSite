@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient( #243545, #243545 var(--line-offset), #dedede var(--line-offset) );
+    background: linear-gradient( #243545,#243545 var(--line-offset), #dedede var(--line-offset) );
     width: 100vw;
     height: 100vh;
     font-family: 'Lexend Deca', sans-serif;
@@ -29,6 +29,26 @@ body {
     left: 42%;
     position: absolute;
     z-index: 1;
+}
+
+.page {
+    width: 700px;
+    height: 400px;
+    margin-left: -230px;
+    margin-top: 0px;
+    top: 25%; /* положение контейнера */
+    left: 42%;
+    position: absolute;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.content {
+    padding: 0 0 0 3em;
+    font-size: 16px;
+    color: black;
 }
 
 .buton { /* Внешний вид кнопки */
@@ -101,12 +121,6 @@ h3 {
 .link {
     text-decoration: none;
     color: white;
-}
-
-.content {
-    padding: 0 0 0 3em;
-    font-size: 16px;
-    color: black;
 }
 
 .main-menu > li:not(.with-submenu) {

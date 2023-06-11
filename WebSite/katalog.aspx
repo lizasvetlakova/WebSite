@@ -1,19 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="katalog.aspx.cs" Inherits="WebSite.katalog" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="katalog.aspx.cs" Inherits="WebSite.katalog" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="content">
+        <div class="page">
     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Название_категории" DataValueField="Код_категории" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
     </asp:DropDownList>
-    <asp:Button ID="Button4" runat="server" style="position: relative; left: 116px; top: 1px; width: 114px" Text="Все средства" OnClick="AllItems_Click" />
+    <asp:Button ID="Button4" runat="server" style="position: relative; left: 116px; top: 1px; width: 114px" Text="Все средства" CssClass="buton" OnClick="AllItems_Click" />
     <br /><br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT * FROM [Категории]"></asp:SqlDataSource>
-    <div class="auto-style6">
+    <div class="auto-style6" style="text-align: center">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Код_товара" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="16px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="662px" AllowPaging="True" >
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="Код_товара" HeaderText="Код_товара" ReadOnly="True" SortExpression="Код_товара" Visible="False" />
             <asp:BoundField DataField="Наименование" HeaderText="Наименование" SortExpression="Наименование" />
             <asp:BoundField DataField="Цена" HeaderText="Цена" SortExpression="Цена" />
-            <asp:CommandField ButtonType="Image" SelectImageUrl="~/image/eye.png" ShowSelectButton="True" HeaderText="Просмотр">
-            <ControlStyle Height="20px" Width="20px" />
+            <asp:CommandField ShowSelectButton="True" SelectText="Подробнее">
             </asp:CommandField>
             <asp:BoundField DataField="Код_категории" HeaderText="Код_категории" SortExpression="Код_категории" Visible="False" />
             
@@ -75,4 +76,6 @@
             <asp:SessionParameter DefaultValue="0" Name="Код_товара" SessionField="IDT" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+              </div>
+        </div>
 </asp:Content>
