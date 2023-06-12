@@ -21,7 +21,7 @@ namespace WebSite
                       
 
             Nomer.Text = Convert.ToString(nakl.Номер_накладной);
-            Data.Text = Convert.ToString(nakl.Дата);
+            Data.Text = DataBank.FormatData(Convert.ToString(nakl.Дата));
             Сумма.Text = Convert.ToString(nakl.Сумма);
         }
 

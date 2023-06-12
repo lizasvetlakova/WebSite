@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
         <div class="page">
-    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Название_категории" DataValueField="Код_категории" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Название_категории" DataValueField="Код_категории" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Height="25px" Font-Bold="True">
     </asp:DropDownList>
     <asp:Button ID="Button4" runat="server" style="position: relative; left: 116px; top: 1px; width: 114px" Text="Все средства" CssClass="buton" OnClick="AllItems_Click" />
     <br /><br />
@@ -77,5 +77,5 @@
         </SelectParameters>
     </asp:SqlDataSource>
               </div>
-        </div>
+    </div>
 </asp:Content>

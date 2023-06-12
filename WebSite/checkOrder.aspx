@@ -4,26 +4,23 @@
         <div class="page">
     <table class="auto-style7">
         <tr>
-            <td style="width: 177px"><h1>Содержание заявки</h1></td>
-            <td style="width: 278px" >
-                <asp:Button ID="OrdersButton" runat="server" Text="Все заявки" CssClass="buton" OnClick="Return_Click" Width="160px" />
+            <td style="width: 52px"><h1 style="left: -30px; top: 5px; width: 256px">Заявка № 
+        <asp:Label ID="Nomer" runat="server" Text=""></asp:Label>
+        от
+        <asp:Label ID="Data" runat="server" Text="" DataFormatString="{0:dd/MM/yyyy}"></asp:Label>
+                </h1></td>
+            <td style="width: 265px; text-align: right;" >
+                <asp:Button ID="OrdersButton" runat="server" Text="Все заявки" CssClass="buton" OnClick="Return_Click" Width="135px" />
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <h1>Заявка № 
-        <asp:Label ID="Nomer" runat="server" Text=""></asp:Label>
-        от
-        <asp:Label ID="Data" runat="server" Text=""></asp:Label>
-        </h1>
-          <h1>Сумма:
+          <h1 style="left: -29px; top: -12px; width: 607px">Сумма:
         <asp:Label ID="Сумма" runat="server" Text=""></asp:Label>
               </h1>
-        <h1>
-        Наименования:</h1><br />
-                <br />
+        <h1 style="left: -30px; top: -13px; width: 270px">Наименования:</h1>
                 <div class="auto-style6" style="text-align: center">
-                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Номер_накладной,Код_товара" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" Width="573px">
+                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Номер_накладной,Код_товара" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" Width="666px">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:BoundField DataField="Номер_накладной" HeaderText="Номер_накладной" ReadOnly="True" SortExpression="Номер_накладной" Visible="False" />
