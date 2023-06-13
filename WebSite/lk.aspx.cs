@@ -23,7 +23,13 @@ namespace WebSite
 
         protected void OrderButton_Click(object sender, EventArgs e)
         {
-            
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var nakl = (from item in db.Накладные
+                        orderby item.Номер_накладной descending
+                        select item).First();
+            Session["Nomer"] = nakl.Номер_накладной + 1;
+            Session["Data"] = DateTime.Now.ToShortDateString();
+            Response.Redirect("order.aspx");
         }
     }
 }

@@ -63,7 +63,7 @@ namespace WebSite
             {
                 //Label5.Text = exception.Message;
             }
-            //Panel1.Visible = false;
+            Panel1.Visible = false;
             Response.Redirect("order.aspx");
         }
 
@@ -108,22 +108,50 @@ namespace WebSite
                 накладная.Сумма = DataBank.SummaN;
                 накладная.Статус = "Сохранена";
                 db.SubmitChanges();
+                
+                Label6.Text = "Заявка сохранена!";
+                
             }
             catch (Exception exception)
             {
                 ErrorLabel.Text = exception.Message;
             }
-            Label6.Visible = true;
-            Label6.Text = "Заявка успешно сохранена!";
             DataBank.SummaN = 0;
             DataBank.Counter = 0;
             DataBank.flagN = 0;
+
         }
 
         protected void AllItems_Click(object sender, EventArgs e)
         {
             SqlDataSource2.SelectCommand = "SELECT [Код_товара], [Наименование], [Цена], [Код_категории] FROM [Товары]";
             GridView2.DataBind();
+        }
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            if (GridView1.Rows.Count != 0)
+            {
+                decimal sum = 0;
+                int K = 0;
+
+                foreach (GridViewRow row in GridView1.Rows)
+                {
+                    decimal price = decimal.Parse(row.Cells[3].Text);
+                    int kol = int.Parse(row.Cells[1].Text);
+                    sum += price;
+                    K += kol;
+                }
+
+                GridViewRow footer = GridView1.FooterRow;
+
+                footer.Cells[0].HorizontalAlign = HorizontalAlign.Right;
+
+                footer.Cells[0].Text = "Итого:";
+                footer.Cells[1].Text = K.ToString();
+                footer.Cells[3].Text = sum.ToString("C");
+
+            }
+
         }
     }
 }

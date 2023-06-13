@@ -15,6 +15,15 @@ namespace WebSite
     {
 
         /// <summary>
+        /// Panel2 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel2;
+
+        /// <summary>
         /// Nomer элемент управления.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,13 @@ namespace WebSite
         protected global::System.Web.UI.WebControls.Button SaveButton;
 
         /// <summary>
-        /// Label6 элемент управления.
+        /// TovarButton элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Button TovarButton;
 
         /// <summary>
         /// Label3 элемент управления.
@@ -58,15 +67,6 @@ namespace WebSite
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// TovarButton элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TovarButton;
 
         /// <summary>
         /// Label4 элемент управления.
@@ -85,6 +85,15 @@ namespace WebSite
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Сумма;
+
+        /// <summary>
+        /// Label6 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
         /// GridView1 элемент управления.

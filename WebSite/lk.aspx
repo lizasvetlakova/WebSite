@@ -35,7 +35,7 @@
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
             </div>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT [Код_пользователя], [Статус], [Сумма], [Дата], [Номер_накладной] FROM [Накладные] WHERE ([Код_пользователя] = @Код_пользователя)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT [Код_пользователя], [Статус], [Сумма], [Дата], [Номер_накладной] FROM [Накладные] WHERE ([Код_пользователя] = @Код_пользователя) ORDER BY [Номер_накладной] DESC">
                     <SelectParameters>
                         <asp:SessionParameter DefaultValue="1" Name="Код_пользователя" SessionField="IDUser" Type="Int32" />
                     </SelectParameters>

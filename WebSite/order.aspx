@@ -1,41 +1,36 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="WebSite.order" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="WebSite.order" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="content">
+        <div class="page">
     <table style="width: 400px">
         <td style="width: 130px">
-                <table style="width: 112%">
-                    <tr>
-                        <td style="width: 14px; height: 25px">Заявка№ <asp:Label ID="Nomer" runat="server" Text=""></asp:Label>
-                &nbsp;</td>
-                        <td style="width: 77px; height: 25px"> &nbsp;<asp:Label ID="Data" runat="server" Text=""></asp:Label>
-                        </td>
-                        <td style="width: 76px; height: 25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="SaveButton" runat="server" Text="Сохранить" OnClick="SaveButton_Click" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="height: 27px" colspan="3"><asp:Label ID="Label6" runat="server" Text="Label" Visible="False"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 14px"><asp:Label ID="Label3" runat="server" Text="Товары"></asp:Label>
-                        </td>
-                        <td style="width: 77px" class="auto-style10">
-                <asp:Button ID="TovarButton" runat="server" Text="Добавить" OnClick="TovarButton_Click" />
-                        </td>
-                        <td style="width: 76px"><asp:Label ID="Label4" runat="server" Text="Сумма: "></asp:Label>
-                            <asp:Label ID="Сумма" runat="server" Text=""></asp:Label>
-                        </td>
-                    </tr>
-                </table>
-                &nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-                <br />
-                <div class="auto-style6">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Номер_накладной,Код_товара" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="450px">
+           <asp:Panel ID="Panel2" runat="server" style="margin-left: -150px" Width="180px" Visible="true" Height="584px">
+                    <h1 style="left: -29px; top: -7px; width: 162px">Заявка № <asp:Label ID="Nomer" runat="server" Text=""></asp:Label></h1>
+                            <h1 style="left: 100px; top: -48px; width: 130px; height: 23px">от <asp:Label ID="Data" runat="server" Text=""></asp:Label></h1>
+
+                <asp:Button ID="SaveButton" runat="server" CssClass="buton" Text="Сохранить" OnClick="SaveButton_Click" style="z-index: 1; position: absolute; top: 15px; left: 250px" />
+               <asp:Button ID="TovarButton" runat="server" CssClass="buton" OnClick="TovarButton_Click" style="z-index: 1; position: absolute; top: 65px; left: 250px" Text="Добавить" />
+               
+                    <h1 style="left: -29px; top: -40px; width: 64px">
+                        <asp:Label ID="Label3" runat="server" Text="Товары"></asp:Label>
+                    </h1>
+                    <h1 style="left: -29px; top: -30px; width: 169px">
+                        <asp:Label ID="Label4" runat="server" Text="Сумма: "></asp:Label>
+                        <asp:Label ID="Сумма" runat="server" Text=""></asp:Label>
+                                               
+                    </h1>
+               <h1 style="left: 300px; top: -20px; width: 170px">
+                   <asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+
+               </h1>
+                <div class="auto-style6" style="text-align: center;">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Номер_накладной,Код_товара" DataSourceID="SqlDataSource1" 
+                    ForeColor="#333333" GridLines="None"  style="z-index: 1; width: 520px; position: absolute; top: 170px; left: -150px"
+                    ShowFooter="True" OnDataBound="GridView1_DataBound">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:BoundField DataField="Номер_накладной" HeaderText="Номер_накладной" ReadOnly="True" SortExpression="Номер_накладной" Visible="False" />
-                        <asp:BoundField DataField="Код_товара" HeaderText="Код_товара" ReadOnly="True" SortExpression="Код_товара" Visible="False" />
+                        <%--<asp:BoundField DataField="Номер_накладной" HeaderText="Номер_накладной" ReadOnly="True" SortExpression="Номер_накладной" Visible="False" />
+                        <asp:BoundField DataField="Код_товара" HeaderText="Код_товара" ReadOnly="True" SortExpression="Код_товара" Visible="False" />--%>
                         <asp:BoundField DataField="Наименование" HeaderText="Наименование" SortExpression="Наименование" />
                         <asp:BoundField DataField="Количество" HeaderText="Количество" SortExpression="Количество" />
                         <asp:BoundField DataField="Цена" HeaderText="Цена" SortExpression="Цена" />
@@ -53,6 +48,9 @@
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
                 </div>
+                    
+                    <br />
+                    <br />
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT * FROM [Содержание] WHERE ([Номер_накладной] = @Номер_накладной)">
                     <SelectParameters>
                         <asp:SessionParameter DefaultValue="1" Name="Номер_накладной" SessionField="Nomer" Type="Int32" />
@@ -60,20 +58,22 @@
                 </asp:SqlDataSource>
                 <br />
                 <asp:Label ID="ErrorLabel" runat="server" Text="Label" Visible="False"></asp:Label>
+            </asp:Panel>
                 </td>
             <td style="width: 150px">
-                <asp:Panel ID="Panel1" runat="server" style="margin-left: 51px" Width="180px" Visible="true" Height="250px">
-                    Номенклатура<br /> 
-                    <br />
+                <asp:Panel ID="Panel1" runat="server" style="margin-left: 370px" Width="180px" Visible="false" Height="584px">
+                    <h1 style="left: -35px; top: -5px; width: 153px">Номенклатура</h1> 
+                    
                     Тип средства&nbsp;
-                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSourceFilter" DataTextField="Название_категории" DataValueField="Код_категории" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSourceFilter" DataTextField="Название_категории" DataValueField="Код_категории" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Height="25px">
                     </asp:DropDownList>
-                    <asp:Button ID="Button4" runat="server" OnClick="AllItems_Click" style="position: relative; left: 257px; top: -33px; width: 114px" Text="Все средства" />
+                    <asp:Button ID="Button4" runat="server" CssClass="buton" OnClick="AllItems_Click" style="position: relative; left: 257px; top: -33px; width: 114px" Text="Все средства" />
+                    
                     <asp:SqlDataSource ID="SqlDataSourceFilter" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT * FROM [Категории]"></asp:SqlDataSource>
-                    <asp:Button ID="Выбрать" runat="server" OnClick="Выбрать_Click" Text="Выбрать" />
+                    <asp:Button ID="Выбрать" runat="server" CssClass="buton" OnClick="Выбрать_Click" Text="Выбрать" />
                     <br />
                     <br />
-                    <div class="auto-style6">
+                    <div class="auto-style6" style="text-align: center">
                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Код_товара" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="16px" Width="450px" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
@@ -114,4 +114,6 @@
             </td>
         </tr>
     </table>
+            </div>
+         </div>
 </asp:Content>
