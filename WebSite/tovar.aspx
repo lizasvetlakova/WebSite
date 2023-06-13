@@ -1,19 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="tovar.aspx.cs" Inherits="WebSite.tovar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site4.Master" AutoEventWireup="true" CodeBehind="tovar.aspx.cs" Inherits="WebSite.tovar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="content">
+        <div class="page">
+            <asp:Panel runat="server" HorizontalAlign="Center" style="z-index: 1; position: absolute; top: 5px; left: -17px; width: 755px;">
     <table>
         <tr>
-            <td style="width: 110%">
-    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Название_категории" DataValueField="Код_категории" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+            <td style="width: 117%">
+    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Height="27px" DataSourceID="SqlDataSource1" DataTextField="Название_категории" DataValueField="Код_категории" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
     </asp:DropDownList>
     &nbsp;
-    &nbsp;<asp:Button ID="AllButton" runat="server" Text="Все средства" Width="104px" OnClick="AllButton_Click" />
-                &nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="AddButton" runat="server" Text="Добавить новый товар" OnClick="AddButton_Click" Width="169px" />
-                &nbsp;&nbsp;
+    &nbsp;<asp:Button ID="AllButton" runat="server" CssClass="buton" Text="Все средства" Width="120px" OnClick="AllButton_Click" />
+                &nbsp;&nbsp;<asp:Button ID="AddButton" runat="server" CssClass="buton" Text="Добавить товар" OnClick="AddButton_Click" Width="150px" />
+                &nbsp;&nbsp;<asp:Button ID="Button1" runat="server" CssClass="buton" Text="Добавить категорию" OnClick="AddKat_Click" Width="170px"/>
                 <br />
     &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT * FROM [Категории]">
     </asp:SqlDataSource>
-                <div class="auto-style6">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Код_товара" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="16px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="464px" Visible="False" >
+                <div class="auto-style6" style="text-align: center">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Код_товара" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None"
+        Height="16px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="539px" Visible="False">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="Код_товара" HeaderText="№" ReadOnly="True" SortExpression="Код_товара" Visible="False" />
@@ -63,24 +67,26 @@
         </UpdateParameters>
     </asp:SqlDataSource>
                 <br />
-    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="Код_товара" DataSourceID="SqlDataSource3" Visible="False" Height="50px" Width="439px" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateEditButton="True">
-        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-        <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-        <EditRowStyle BackColor="#999999" />
-        <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
-        <Fields>
-            <asp:BoundField DataField="Код_товара" HeaderText="№" ReadOnly="True" SortExpression="Код_товара" Visible="False" />
-            <asp:BoundField DataField="Наименование" HeaderText="Наименование" SortExpression="Наименование" />
-            <asp:BoundField DataField="Артикул" HeaderText="Артикул" SortExpression="Артикул" />
-            <asp:BoundField DataField="Объём" HeaderText="Объём" SortExpression="Объём" />
-            <asp:BoundField DataField="Ед_измерения" HeaderText="Ед. измерения" SortExpression="Ед_измерения" />
-            <asp:BoundField DataField="Цена" HeaderText="Цена" SortExpression="Цена" />
-        </Fields>
-        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-    </asp:DetailsView>
+                <div style="text-align: left">
+                    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="Код_товара" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" Height="50px" Visible="False" Width="439px">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                        <EditRowStyle BackColor="#999999" />
+                        <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+                        <Fields>
+                            <asp:BoundField DataField="Код_товара" HeaderText="№" ReadOnly="True" SortExpression="Код_товара" Visible="False" />
+                            <asp:BoundField DataField="Наименование" HeaderText="Наименование" SortExpression="Наименование" />
+                            <asp:BoundField DataField="Артикул" HeaderText="Артикул" SortExpression="Артикул" />
+                            <asp:BoundField DataField="Объём" HeaderText="Объём" SortExpression="Объём" />
+                            <asp:BoundField DataField="Ед_измерения" HeaderText="Ед. измерения" SortExpression="Ед_измерения" />
+                            <asp:BoundField DataField="Цена" HeaderText="Цена" SortExpression="Цена" />
+                        </Fields>
+                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    </asp:DetailsView>
+                </div>
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT [Код_товара], [Наименование], [Артикул], [Объём], [Ед_измерения], [Цена] FROM [Товары] WHERE ([Код_товара] = @Код_товара)" DeleteCommand="DELETE FROM [Товары] WHERE [Код_товара] = @Код_товара" InsertCommand="INSERT INTO [Товары] ([Код_товара], [Наименование], [Артикул], [Объём], [Ед_измерения], [Цена]) VALUES (@Код_товара, @Наименование, @Артикул, @Объём, @Ед_измерения, @Цена)" UpdateCommand="UPDATE [Товары] SET [Наименование] = @Наименование, [Артикул] = @Артикул, [Объём] = @Объём, [Ед_измерения] = @Ед_измерения, [Цена] = @Цена WHERE [Код_товара] = @Код_товара">
         <DeleteParameters>
             <asp:Parameter Name="Код_товара" Type="Int32" />
@@ -153,5 +159,8 @@
             </td>
         </tr>
     </table>
+                </asp:Panel>
+            </div>
+         </div>
     <br />
     </asp:Content>

@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site4.master.cs" Inherits="WebSite.Site4" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="StyleSheet2.css">
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            position: relative;
+            top: 5px; 
+            left: 30px;
+            width: 100px;
+            height: 100px;
+        }
+        .auto-style3 {
+            text-align: right;
+            position: relative;
+            top: -5px; 
+            left: -30px;
+        }
+        .auto-style4 {
+            text-align: right;
+            position: relative;
+            top: 15px; 
+            left: -30px;
+            color: white;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+       
+        
+           <table class="auto-style1">
+               <tr>
+                   <td rowspan="2"><asp:Image ID="Image1" runat="server" ImageUrl="~/image/logo3.jpg" CssClass="auto-style2" /></td>
+                   <td rowspan="2"><h2>Косметикс</h2></td>
+                   <td class="auto-style4">
+                       <asp:Label ID="FIO" runat="server" Text=""></asp:Label>
+                   </td>
+               </tr>
+               <tr>
+                   <td class="auto-style3"><asp:Button ID="LogoutButton" runat="server" Text="Выйти" CssClass= "buton" OnClick="LogoutButton_Click" /></td>
+               </tr>
+               <tr>
+                   <td colspan="3">
+
+            <nav class="menu">
+            <ul class="main-menu">
+                <li class="active"><i class="fa"></i>
+                    <asp:LinkButton ID="Katalog" runat="server" CssClass="link" OnClick="Katalog_Click">Номенклатура</asp:LinkButton>
+                </li>
+                <li class="active"><i2 class="fa"></i2>
+                    <asp:LinkButton ID="Sklad" runat="server" CssClass="link" OnClick="Sklad_Click">Склад</asp:LinkButton>
+                <li class="active"><i3 class="fa"></i3>
+                    <asp:LinkButton ID="My" runat="server" CssClass="link" OnClick="Orders_Click">Заявки</asp:LinkButton>     
+                <li class="active"><i4 class="fa"></i4>
+                    <asp:LinkButton ID="Doc" runat="server" CssClass="link" OnClick="Doc_Click">Документы</asp:LinkButton>
+                <li class="active"><i5 class="fa"></i5>
+                    <asp:LinkButton ID="Kontr" runat="server" CssClass="link" OnClick="Kontr_Click">Контрагенты</asp:LinkButton>
+                    </li>
+            </ul>
+            </nav>
+                   </td>
+               </tr>
+           </table>
+        
+        <!--<div class="container">-->
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+               </asp:ContentPlaceHolder>
+            <!--</div>-->
+    </form>
+</body>
+</html>

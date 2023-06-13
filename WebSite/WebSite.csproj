@@ -89,6 +89,7 @@
     <Content Include="register.aspx" />
     <Content Include="sklad.aspx" />
     <Content Include="StyleSheet1.css" />
+    <Content Include="StyleSheet2.css" />
     <Content Include="tovar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -205,6 +206,13 @@
     <Compile Include="Site3.Master.designer.cs">
       <DependentUpon>Site3.Master</DependentUpon>
     </Compile>
+    <Compile Include="Site4.Master.cs">
+      <DependentUpon>Site4.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site4.Master.designer.cs">
+      <DependentUpon>Site4.Master</DependentUpon>
+    </Compile>
     <Compile Include="sklad.aspx.cs">
       <DependentUpon>sklad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +241,7 @@
     <Content Include="Site1.Master" />
     <Content Include="Site2.Master" />
     <Content Include="Site3.Master" />
+    <Content Include="Site4.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -74,6 +74,11 @@ namespace WebSite
             Errorlabel.Visible = false;
         }
 
+        protected void AddKat_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void AllButton_Click(object sender, EventArgs e)
         {
             AddPanel.Visible = false;

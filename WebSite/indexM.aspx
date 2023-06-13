@@ -1,14 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="indexM.aspx.cs" Inherits="WebSite.indexM" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site4.Master" AutoEventWireup="true" CodeBehind="indexM.aspx.cs" Inherits="WebSite.indexM" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="width: 924px; font-family: Cambria; font-size: x-large;"><em>Космомедика - уходовая косметика для кожи</em></h1>
-    <p style="width: 976px; font-family: Cambria; font-size: medium;">
-    Добро пожаловать на складской портал косметической продукции Космомедика!
-    </p>
+     <div class="container">
+        <div class="content">
+        <h1>Косметикс - уходовая косметика для кожи</h1>
+        <p>Добро пожаловать в складскую систему косметической продукции Косметикс!
+            </p>
 
-    <h1 style="width: 910px; font-family: Cambria; font-size: x-large;"><em>Новости</em></h1>
-    <asp:ListView ID="ListView1" runat="server" DataSourceID="LinqDataSource1" style="font-size: medium">
+      <h1>Новости</h1>
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="LinqDataSource1" style="font-size: medium">
         <AlternatingItemTemplate>
-            <span style="background-color: #FAFAD2;color: #000000;">Дата:
+            <span style="background-color: #F7F6F3;color: #000000;">Дата:
             <asp:Label ID="ДатаLabel" runat="server" Text='<%# Eval("Дата") %>' />
             <br />
             
@@ -19,7 +20,7 @@
             </span>
         </AlternatingItemTemplate>
         <EditItemTemplate>
-            <span style="background-color: #FFCC66;color: #000000;">Дата:
+            <span style="background-color: #F7F6F3;color: #000000;">Дата:
             <asp:TextBox ID="ДатаTextBox" runat="server" Text='<%# Bind("Дата") %>' />
             <br />
            
@@ -48,7 +49,7 @@
             </span>
         </InsertItemTemplate>
         <ItemTemplate>
-            <span style="background-color: #FFFBD6;color: #000000; &gt;" />
+            <span style="background-color: #F7F6F3;color: #000000; &gt;" />
             Дата:
             <asp:Label ID="ДатаLabel" runat="server" Text='<%# Eval("Дата") %>' />
             <br />
@@ -61,7 +62,7 @@
             <div style="font-family: Verdana, Arial, Helvetica, sans-serif;" id="itemPlaceholderContainer" runat="server">
                 <span runat="server" id="itemPlaceholder" />
             </div>
-            <div style="text-align: center;background-color: #ffffff;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
+            <div style="text-align: center;background-color: #dedede; font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
                 <asp:DataPager ID="DataPager1" runat="server" PageSize="3">
                     <Fields>
                         <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
@@ -72,7 +73,7 @@
             </div>
         </LayoutTemplate>
         <SelectedItemTemplate>
-            <span style="background-color: #FFCC66;font-weight: bold;color: #000080;">Дата:
+            <span style="background-color: #F7F6F3;font-weight: bold;color: #000080;">Дата:
             <asp:Label ID="ДатаLabel" runat="server" Text='<%# Eval("Дата") %>' />
             <br />
             
@@ -86,5 +87,7 @@
         <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="WebSite.DataClasses1DataContext" EntityTypeName="" OrderBy="Дата" Select="new (Дата, Новость)" TableName="Новости">
         </asp:LinqDataSource>
     </p>
+            </div>
+    </div>
 
 </asp:Content>

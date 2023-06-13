@@ -34,7 +34,7 @@ namespace WebSite
                 Session["IDKontr"] = Session["is_admin"] = selectedUser.Роль;
                 if(selectedUser.Роль == 1)
                 {
-                    Response.Redirect("indexM.aspx");
+                    Response.Redirect("tovar.aspx");
                 }
                 else
                 {
