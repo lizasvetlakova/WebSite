@@ -73,9 +73,11 @@
     <Content Include="documents.aspx" />
     <Content Include="image\check.png" />
     <Content Include="image\del.jpg" />
+    <Content Include="image\ex.png" />
     <Content Include="image\eye.png" />
     <Content Include="image\logo2.jpg" />
     <Content Include="image\logo3.jpg" />
+    <Content Include="image\plus.JPG" />
     <Content Include="image\red.jpg" />
     <Content Include="image\save.JPG" />
     <Content Include="index.aspx" />

@@ -49,5 +49,59 @@ namespace WebSite
             Session["IDN"] = this.GridView1.SelectedValue;
             Response.Redirect("checkDoc.aspx");
         }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                int kodT = int.Parse(row.Cells[1].Text);
+                int kodK = int.Parse(row.Cells[3].Text);
+
+                var type = (from item in db.Типы_накладной
+                             where item.Код_типа == kodT
+                             select item).Single();
+                var agent = (from item in db.Контрагенты
+                             where item.Код_контрагента == kodK
+                             select item).Single();
+
+                row.Cells[1].Text = type.Название_накладной;
+                row.Cells[3].Text = agent.Короткое_имя;
+
+            }
+        }
+
+        protected void Type_Click(object sender, EventArgs e)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var dd = from item in db.Накладные
+                    where item.Код_типа.ToString() == DropDownList1.SelectedValue orderby item.Номер_накладной descending
+                    select item;
+            GridView1.DataSourceID = "";
+            GridView1.DataSource = dd;
+            GridView1.DataBind();
+        }
+
+
+        protected void Date_Click(object sender, EventArgs e)
+        {
+            DateTime data1 = DateTime.Parse(TextBox1.Text);
+            DateTime data2 = DateTime.Parse(TextBox2.Text);
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var dd = from item in db.Накладные
+                     where item.Дата >= data1 && item.Дата <= data2 orderby item.Дата ascending
+                     select item;
+            GridView1.DataSourceID = "";
+            GridView1.DataSource = dd;
+            GridView1.DataBind();
+        }
+
+        protected void All_Click(object sender, EventArgs e)
+        {
+           GridView1.DataSourceID = "SqlDataSource2";
+           // GridView1.DataSource = dd;
+            GridView1.DataBind();
+        }
     }
 }
