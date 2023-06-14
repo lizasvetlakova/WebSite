@@ -27,7 +27,7 @@ namespace WebSite
         }
         protected void Kontr_Click(object sender, EventArgs e)
         {
-           
+            Response.Redirect("kontr.aspx");
         }
 
         protected void Katalog_Click(object sender, EventArgs e)
