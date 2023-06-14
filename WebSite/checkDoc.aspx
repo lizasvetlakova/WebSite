@@ -17,6 +17,10 @@
                 <asp:Button ID="Button1" runat="server" Text="Провести" CssClass="buton" OnClick="Prov_Click" 
                     Width="135px" style="z-index: 1; position: absolute; top: 55px; left: 550px"/>
             </td>
+            <td style="width: 142px; text-align: right; height: 43px;" >
+                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/image/ex.png" CssClass="buton" OnClick="Ex_Click" 
+                    style="z-index: 1; position: absolute; top: 150px; left: 650px; width: 25px; height: 25px;"/>
+            </td>
         </tr>
         <tr>
             <td colspan="2">

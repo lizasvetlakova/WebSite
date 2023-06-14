@@ -3,6 +3,8 @@
     <div class="content">
         <div class="page">
             <h1>Накладные</h1>
+            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/image/plus.JPG" CssClass="buton" OnClick="Добавление_Click" 
+                   style="border-color:#5D7B9D; z-index: 1; position: absolute; top: 17px; left: 150px; width: 20px; height: 20px;"/>
     Тип документа: <asp:DropDownList ID="DropDownList1" runat="server" Width="100px"  Height="20px" Font-Bold="True" DataSourceID="SqlDataSource1" DataTextField="Короткое_название" DataValueField="Код_типа">
     </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT [Короткое название] AS Короткое_название, [Код_типа] FROM [Типы_накладной]"></asp:SqlDataSource>

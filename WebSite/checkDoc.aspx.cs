@@ -262,5 +262,10 @@ namespace WebSite
         {
 
         }
+
+        protected void Ex_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
     }
 }

@@ -103,5 +103,16 @@ namespace WebSite
            // GridView1.DataSource = dd;
             GridView1.DataBind();
         }
+
+        protected void Добавление_Click(object sender, ImageClickEventArgs e)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var nakl = (from item in db.Накладные
+                        orderby item.Номер_накладной descending
+                        select item).First();
+            Session["Nomer"] = nakl.Номер_накладной + 1;
+            Session["Data"] = DateTime.Now.ToShortDateString();
+            Response.Redirect("nakl.aspx");
+        }
     }
 }

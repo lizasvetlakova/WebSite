@@ -14,7 +14,7 @@ namespace WebSite
         protected void Page_Load(object sender, EventArgs e)
         {
             Nomer.Text = Convert.ToString(Session["Nomer"]);
-            Data.Text = Convert.ToString(DateTime.Now);
+            Data.Text = Convert.ToString(Session["Data"]);
 
             if (DataBank.SummaN == 0)
             {
@@ -64,30 +64,28 @@ namespace WebSite
                 //Label5.Text = exception.Message;
             }
             Panel1.Visible = false;
-            Response.Redirect("order.aspx");
+            Response.Redirect("nakl.aspx");
         }
 
         protected void TovarButton_Click(object sender, EventArgs e)
         {
-            /*
-            if(DataBank flag != 1){
-                DataClasses1DataContext db = new DataClasses1DataContext();
-
-                var nakl = (from item in db.Накладные
-                            orderby item.Номер_накладной descending
-                            select item).First();
-                Session["Nomer"] = nakl.Номер_накладной + 1;
+            Panel1.Visible = true;
+            if (DataBank.flagN == 0)
+            {
+                DataClasses1DataContext db1 = new DataClasses1DataContext();
 
                 Накладные накладная = new Накладные();
 
                 накладная.Номер_накладной = Convert.ToInt32(Session["Nomer"]);
-                db.Накладные.InsertOnSubmit(накладная);
-                db.SubmitChanges();
-                DataBank flag = 1;
-                Response.Redirect("nakl.aspx");
+                накладная.Дата = Convert.ToDateTime(Session["Data"]);
+                накладная.Код_пользователя = Convert.ToInt32(Session["IDUser"]);
+                накладная.Код_контрагента = Convert.ToInt32(DropDownList2.SelectedValue); ;
+                накладная.Код_типа = Convert.ToInt32(DropDownList3.SelectedValue);
+                db1.Накладные.InsertOnSubmit(накладная);
+
+                db1.SubmitChanges();
+                DataBank.flagN = 1;
             }
-            */
-            Panel1.Visible = true;
 
         }
 
@@ -104,33 +102,62 @@ namespace WebSite
 
                 int num = Convert.ToInt32(Session["Nomer"]);
 
-                var updateNakl = (from item in db.Накладные
-                                  where item.Номер_накладной == num
-                                  select item).Single();
-
-                updateNakl.Дата = DateTime.Now;
-                updateNakl.Сумма = DataBank.SummaN;
-                updateNakl.Статус = "Сохранена";
-                updateNakl.Код_пользователя = Convert.ToInt32(Session["IDUser"]);
-                updateNakl.Код_контрагента = Convert.ToInt32(Session["IDKontr"]);
-                updateNakl.Код_типа = 5;
-
+                var накладная = (from item in db.Накладные
+                                 where item.Номер_накладной == num
+                                 select item).Single();
+                накладная.Сумма = DataBank.SummaN;
+                накладная.Статус = "Сохранена";
                 db.SubmitChanges();
+
+                ErrorLabel.Text = "Накладная сохранена!";
+
             }
             catch (Exception exception)
             {
                 ErrorLabel.Text = exception.Message;
             }
-            //Label6.Visible = true;
-            //Label6.Text = "Заявка успешно сохранена!";
             DataBank.SummaN = 0;
             DataBank.Counter = 0;
+            DataBank.flagN = 0;
         }
 
         protected void AllItems_Click(object sender, EventArgs e)
         {
             SqlDataSource2.SelectCommand = "SELECT [Код_товара], [Наименование], [Цена], [Код_категории] FROM [Товары]";
             GridView2.DataBind();
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            if (GridView1.Rows.Count != 0)
+            {
+                decimal sum = 0;
+                int K = 0;
+
+                foreach (GridViewRow row in GridView1.Rows)
+                {
+                    decimal price = decimal.Parse(row.Cells[4].Text);
+                    int kol = int.Parse(row.Cells[2].Text);
+                    sum += price;
+                    K += kol;
+                }
+
+                GridViewRow footer = GridView1.FooterRow;
+
+                footer.Cells[0].ColumnSpan = 2;
+                footer.Cells[0].HorizontalAlign = HorizontalAlign.Right;
+                footer.Cells.RemoveAt(1);
+
+                footer.Cells[0].Text = "Итого:";
+                footer.Cells[1].Text = K.ToString();
+                footer.Cells[3].Text = sum.ToString("C");
+            }
+
+        }
+
+        protected void ProvButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
