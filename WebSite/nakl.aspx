@@ -15,12 +15,12 @@
                    style="border-color:#5D7B9D; z-index: 1; position: absolute; top: 158px; left: -60px; width: 20px; height: 20px;"/>
                
                 <h1 style="left: -29px; top: -60px; width: 380px">Тип накладной: 
-                        <asp:DropDownList ID="DropDownList3" runat="server" Height="23px" DataSourceID="SqlDataSource4" DataTextField="Название_накладной" DataValueField="Код_типа">
+                        <asp:DropDownList ID="DropDownList3" runat="server" Height="23px" DataSourceID="SqlDataSource4" DataTextField="Название_накладной" DataValueField="Код_типа" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged">
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT * FROM [Типы_накладной]"></asp:SqlDataSource>
                     </h1>
                 <h1 style="left: -29px; top: -70px; width: 64px">Контрагент: 
-                        <asp:DropDownList ID="DropDownList2" runat="server" Height="23px" DataSourceID="SqlDataSource3" DataTextField="Короткое_имя" DataValueField="Код_контрагента">
+                        <asp:DropDownList ID="DropDownList2" runat="server" Height="23px" DataSourceID="SqlDataSource3" DataTextField="Короткое_имя" DataValueField="Код_контрагента" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:skladConnectionString2 %>" SelectCommand="SELECT [Код_контрагента], [Короткое_имя] FROM [Контрагенты]"></asp:SqlDataSource>
                     </h1>

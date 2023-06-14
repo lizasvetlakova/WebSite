@@ -12,7 +12,7 @@
         
     </table>
             <div style="text-align: center">
-            <asp:GridView ID="GridView1" CssClass="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Номер_накладной" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="576px" style="z-index: 1; width: 576px; height: 257px; position: absolute; top: 80px; left: 50px">
+            <asp:GridView ID="GridView1" CssClass="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Номер_накладной" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="576px" style="z-index: 1; width: 576px; height: 169px; position: absolute; top: 80px; left: 50px">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
                             <asp:BoundField DataField="Код_пользователя" HeaderText="Код_пользователя" SortExpression="Код_пользователя" Visible="False" />

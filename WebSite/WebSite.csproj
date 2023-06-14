@@ -93,6 +93,7 @@
     <Content Include="sklad.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="StyleSheet2.css" />
+    <Content Include="kontr.aspx" />
     <Content Include="tovar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="sklad.aspx.designer.cs">
       <DependentUpon>sklad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kontr.aspx.cs">
+      <DependentUpon>kontr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kontr.aspx.designer.cs">
+      <DependentUpon>kontr.aspx</DependentUpon>
     </Compile>
     <Compile Include="tovar.aspx.cs">
       <DependentUpon>tovar.aspx</DependentUpon>

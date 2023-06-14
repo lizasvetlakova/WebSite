@@ -79,8 +79,8 @@ namespace WebSite
                 накладная.Номер_накладной = Convert.ToInt32(Session["Nomer"]);
                 накладная.Дата = Convert.ToDateTime(Session["Data"]);
                 накладная.Код_пользователя = Convert.ToInt32(Session["IDUser"]);
-                накладная.Код_контрагента = Convert.ToInt32(DropDownList2.SelectedValue); ;
-                накладная.Код_типа = Convert.ToInt32(DropDownList3.SelectedValue);
+                накладная.Код_контрагента = Convert.ToInt32(Session["kodK"]); ;
+                накладная.Код_типа = Convert.ToInt32(Session["kodType"]);
                 db1.Накладные.InsertOnSubmit(накладная);
 
                 db1.SubmitChanges();
@@ -158,6 +158,16 @@ namespace WebSite
         protected void ProvButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["kodK"] = this.DropDownList2.SelectedValue;
+        }
+
+        protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["kodType"] = this.DropDownList3.SelectedValue;
         }
     }
 }
