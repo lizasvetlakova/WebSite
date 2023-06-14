@@ -11,37 +11,11 @@ namespace WebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            long idUser = Convert.ToInt64(Session["IDUser"]);
-            string nameUser = Convert.ToString(Session["NameUser"]);
-            if (idUser != 0)
-            {
-                Label4.Text = nameUser;
-            }
-
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Session["IDN"] = this.GridView1.SelectedValue;
-            int num = Convert.ToInt32(Session["IDN"]);
-
-            DataClasses1DataContext db = new DataClasses1DataContext();
-
-            var nakl = (from item in db.Накладные
-                           where item.Номер_накладной == num
-                           select item).Single();
-            int k = Convert.ToInt32(nakl.Код_контрагента);
             
-            var kon = (from item in db.Контрагенты
-                       where item.Код_контрагента == k
-                       select item).Single();
 
-            Nomer.Text = Convert.ToString(nakl.Номер_накладной);
-            Data.Text = Convert.ToString(nakl.Дата);
-            Kontr.Text = Convert.ToString(kon.Короткое_имя);
-            Сумма.Text = Convert.ToString(nakl.Сумма);
-            Panel1.Visible = true;
         }
+
+        
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "ProvCommand")
@@ -70,5 +44,10 @@ namespace WebSite
 
         }
 
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["IDN"] = this.GridView1.SelectedValue;
+            Response.Redirect("checkDoc.aspx");
+        }
     }
 }

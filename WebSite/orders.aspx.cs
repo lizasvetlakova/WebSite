@@ -11,7 +11,7 @@ namespace WebSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,10 +61,10 @@ namespace WebSite
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow selectedRow = GridView2.Rows[index];
                 TextBox kol = (TextBox)selectedRow.FindControl("Количество");
-                int kod = Convert.ToInt32(selectedRow.Cells[3].Text);
-                decimal sumInit = Convert.ToDecimal(selectedRow.Cells[6].Text);
+                int kod = Convert.ToInt32(selectedRow.Cells[2].Text);
+                decimal sumInit = Convert.ToDecimal(selectedRow.Cells[5].Text);
                 decimal k = Convert.ToDecimal(kol.Text);
-                decimal c = Convert.ToDecimal(selectedRow.Cells[5].Text);
+                decimal c = Convert.ToDecimal(selectedRow.Cells[4].Text);
                 decimal sum = k * c;
                 decimal razn = sum - sumInit;
 
@@ -89,20 +89,74 @@ namespace WebSite
                 db2.SubmitChanges();
 
                 Label2.Text = "Успешное обновление!";
-                //Response.Redirect("orders.aspx");
+                Response.Redirect("orders.aspx");
             }
             else if(e.CommandName == "DelCommand")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow selectedRow = GridView2.Rows[index];
-                int kod = Convert.ToInt32(selectedRow.Cells[3].Text);
+                int kod = Convert.ToInt32(selectedRow.Cells[2].Text);
+                decimal sumDel = Convert.ToDecimal(selectedRow.Cells[5].Text);
                 int num = Convert.ToInt32(Session["IDN"]);
 
                 string crit = "DELETE FROM Содержание_накладной WHERE Номер_накладной = " + num + "and Код_товара = " + kod;
                 DataClasses1DataContext db = new DataClasses1DataContext();
                 SqlDataSource3.SelectCommand = crit;
                 GridView2.DataBind();
+
+                DataClasses1DataContext db2 = new DataClasses1DataContext();
+                var updateNakl = (from item in db2.Накладные
+                                  where item.Номер_накладной == num
+                                  select item).Single();
+                updateNakl.Сумма -= sumDel;
+
+                db2.SubmitChanges();
             }
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                int kodK = int.Parse(row.Cells[1].Text);
+                var agent = (from item in db.Контрагенты
+                            where item.Код_контрагента == kodK
+                            select item).Single();
+
+                row.Cells[1].Text = agent.Короткое_имя;
+                                
+            }
+        }
+
+        protected void GridView2_DataBound(object sender, EventArgs e)
+        {
+            decimal sum = 0;
+            int K = 0;
+
+            foreach (GridViewRow row in GridView2.Rows)
+            {
+                decimal price = decimal.Parse(row.Cells[5].Text);
+                TextBox kol = (TextBox)row.FindControl("Количество");
+                int k = Convert.ToUInt16(kol.Text);
+                sum += price;
+                K += k;
+            }
+
+            GridViewRow footer = GridView2.FooterRow;
+
+            footer.Cells[0].ColumnSpan = 3;
+            footer.Cells[0].HorizontalAlign = HorizontalAlign.Right;
+            footer.Cells.RemoveAt(1); footer.Cells.RemoveAt(2);
+
+            footer.Cells[0].Text = "Итого:";
+            footer.Cells[1].Text = K.ToString();
+            footer.Cells[3].Text = sum.ToString("C");
+
+            //footer.Cells[1].HorizontalAlign = HorizontalAlign.Center;
+            //footer.Cells[3].HorizontalAlign = HorizontalAlign.Center;
+
         }
     }
 }

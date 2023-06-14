@@ -25,5 +25,18 @@ namespace WebSite
             GridView1.DataBind();
             
         }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            decimal sum = 0;
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                decimal price = decimal.Parse(row.Cells[2].Text);
+                int kol = int.Parse(row.Cells[3].Text);
+                sum = kol*price;
+                row.Cells[5].Text = sum.ToString("C");
+                sum = 0;
+            }
+        }
     }
 }

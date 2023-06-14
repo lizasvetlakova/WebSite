@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="checkDoc.aspx" />
     <Content Include="checkOrder.aspx" />
     <Content Include="documents.aspx" />
     <Content Include="image\check.png" />
@@ -94,6 +95,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="checkDoc.aspx.cs">
+      <DependentUpon>checkDoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkDoc.aspx.designer.cs">
+      <DependentUpon>checkDoc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="checkOrder.aspx.cs">
       <DependentUpon>checkOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
