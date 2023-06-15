@@ -44,7 +44,7 @@ namespace WebSite
             }
             catch (Exception exception)
             {
-                Label1.Text = "\nПароль неверный\n\n" + exception.Message;
+                Label1.Text = "Пароль неверный";
             }
         }
     }

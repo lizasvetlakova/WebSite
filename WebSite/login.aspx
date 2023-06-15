@@ -35,10 +35,6 @@
         .auto-style8 {
             width: 186px;
         }
-        .auto-style9 {
-            text-align: center;
-            width: 48px;
-        }
         .auto-style10 {
             width: 106px;
         }
@@ -86,6 +82,13 @@
             </tr>
             <tr>
                 <td colspan="2">
+                    <em>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="PasswordTextBox" EnableClientScript="False" ErrorMessage="Пароль должен быть от 3 до 20 символов"></asp:RequiredFieldValidator>
+                    </em>
+                    <em>
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                </em>
+                    <br />
                     <br />
                     <asp:Button ID="LoginButton" runat="server" Text="Войти" CssClass="buton" OnClick="LoginButton_Click"/>
                 </td>
@@ -94,7 +97,7 @@
 
 
                 <br />
-                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                
 
 
                 </div>

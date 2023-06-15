@@ -19,18 +19,21 @@
             height: 100px;
         }
         .auto-style3 {
-            text-align: right;
+            text-align: left;
             position: relative;
             top: -5px; 
             left: -30px;
         }
         .auto-style4 {
-            text-align: right;
+            text-align: left;
             position: relative;
             top: 15px; 
             left: -30px;
             color: white;
             font-size: 18px;
+        }
+        .auto-style5 {
+            text-align: right;
         }
     </style>
 </head>
@@ -40,7 +43,7 @@
         
            <table class="auto-style1">
                <tr>
-                   <td rowspan="2"><asp:Image ID="Image1" runat="server" ImageUrl="~/image/logo3.jpg" CssClass="auto-style2" /></td>
+                   <td rowspan="2" class="auto-style5"><asp:Image ID="Image1" runat="server" ImageUrl="~/image/logo3.jpg" CssClass="auto-style2" /></td>
                    <td rowspan="2"><h2>Косметикс</h2></td>
                    <td class="auto-style4">
                        <asp:Label ID="FIO" runat="server" Text=""></asp:Label>
