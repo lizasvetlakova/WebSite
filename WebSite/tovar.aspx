@@ -116,28 +116,28 @@
                 <asp:Panel ID="AddPanel" runat="server" Visible="false">
                     <table>
                         <tr>
-                            <td>Наименование: </td>
-                            <td><asp:TextBox ID="TextBoxName" runat="server" Width="272px"></asp:TextBox></td>
+                            <td style="width: 133px; text-align: left">Наименование: </td>
+                            <td style="text-align: left"><asp:TextBox ID="TextBoxName" runat="server" Width="272px"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Код товара: </td>
-                            <td><asp:TextBox ID="TextBoxArt" runat="server" Width="100px"></asp:TextBox></td>
+                            <td style="width: 133px; text-align: left">Код товара: </td>
+                            <td style="text-align: left"><asp:TextBox ID="TextBoxArt" runat="server" Width="100px"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Объём: </td>
-                            <td><asp:TextBox ID="TextBoxOb" runat="server" Width="100px"></asp:TextBox></td>
+                            <td style="width: 133px; text-align: left">Объём: </td>
+                            <td style="text-align: left"><asp:TextBox ID="TextBoxOb" runat="server" Width="100px"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Ед. измерения: </td>
-                            <td><asp:TextBox ID="TextBoxEd" runat="server" Width="100px"></asp:TextBox></td>
+                            <td style="width: 133px; text-align: left">Ед. измерения: </td>
+                            <td style="text-align: left"><asp:TextBox ID="TextBoxEd" runat="server" Width="100px"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Цена: </td>
-                            <td><asp:TextBox ID="TextBoxPrice" runat="server" Width="100px"></asp:TextBox></td>
+                            <td style="width: 133px; text-align: left">Цена: </td>
+                            <td style="text-align: left"><asp:TextBox ID="TextBoxPrice" runat="server" Width="100px"></asp:TextBox></td>
                         </tr>
                         <tr>
-                            <td>Категория:</td>
-                            <td> 
+                            <td style="width: 133px; text-align: left">Категория:</td>
+                            <td style="text-align: left"> 
                                 <asp:DropDownList ID="ListKategory" runat="server" DataSourceID="LinqDataSource1" DataTextField="Название_категории" DataValueField="Код_категории">
                                 </asp:DropDownList>
                                 <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="WebSite.DataClasses1DataContext" EntityTypeName="" Select="new (Код_категории, Название_категории)" TableName="Категории">
@@ -147,7 +147,8 @@
                         <tr>
                             <td class="auto-style6" colspan="2"> 
                                 <br />
-                                <asp:Button ID="SaveButton" runat="server" Text="Добавить" Width="97px" OnClick="SaveButton_Click" />
+                                <asp:Button ID="SaveButton" runat="server" CssClass="buton" Text="Добавить" Width="97px" OnClick="SaveButton_Click" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <br />
                                 <br />
                                 <asp:Label ID="Errorlabel" runat="server" Text="" Visible="False"></asp:Label>

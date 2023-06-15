@@ -76,7 +76,8 @@ namespace WebSite
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
             var dd = from item in db.Накладные
-                    where item.Код_типа.ToString() == DropDownList1.SelectedValue orderby item.Номер_накладной descending
+                    where item.Код_типа.ToString() == DropDownList1.SelectedValue && item.Код_пользователя == Convert.ToInt64(Session["IDUser"])
+                    orderby item.Номер_накладной descending
                     select item;
             GridView1.DataSourceID = "";
             GridView1.DataSource = dd;
@@ -90,7 +91,8 @@ namespace WebSite
             DateTime data2 = DateTime.Parse(TextBox2.Text);
             DataClasses1DataContext db = new DataClasses1DataContext();
             var dd = from item in db.Накладные
-                     where item.Дата >= data1 && item.Дата <= data2 orderby item.Дата ascending
+                     where item.Дата >= data1 && item.Дата <= data2 && item.Код_пользователя == Convert.ToInt64(Session["IDUser"])
+                     orderby item.Дата ascending
                      select item;
             GridView1.DataSourceID = "";
             GridView1.DataSource = dd;

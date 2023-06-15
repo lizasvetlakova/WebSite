@@ -23,12 +23,12 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-          <h1 style="left: -29px; top: -12px; width: 607px">
+            <td colspan="2" style="text-align: center">
+          <h1 style="left: -29px; top: -12px; width: 607px; text-align: left;">
               <asp:Label ID="Kontr" runat="server" Text=""></asp:Label> <asp:TextBox ID="TextBox1" runat="server" Height="23px" Width="246px"></asp:TextBox>
               </h1>
                 <asp:Label ID="Label2" runat="server" Text=""
-                    style="z-index: 1; position: absolute; top: 100px; left: 550px; width: 145px;"></asp:Label>
+                    style="z-index: 1; position: absolute; top: 100px; left: 550px; width: 145px; text-align:center"></asp:Label>
                 </td></tr>
         <tr>
             <td colspan="2">
@@ -42,8 +42,8 @@
                 <div class="auto-style6" style="text-align: center">
                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Номер_накладной,Код_товара" 
                             DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" Width="675px" 
-                            ShowFooter="True" OnDataBound="GridView2_DataBound" Height="280px" Visible="true"
-                            style="z-index: 1; position: absolute; top: 200px; left: 10px">
+                            ShowFooter="True" OnDataBound="GridView2_DataBound" Visible="true"
+                            style="z-index: 1; position: absolute; top: 200px; left: 10px; height: 157px;">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <%--<asp:BoundField DataField="Номер_накладной" HeaderText="Номер_накладной" ReadOnly="True" SortExpression="Номер_накладной" Visible="False" />
@@ -76,7 +76,7 @@
                 <div class="auto-style6" style="text-align: center">
                 <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Номер_накладной,Код_товара" 
                             DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" Width="675px" Visible ="false" 
-                            ShowFooter="True" OnDataBound="GridView3_DataBound" OnRowCommand="GridView3_RowCommand" Height="280px"
+                            ShowFooter="True" OnDataBound="GridView3_DataBound" OnRowCommand="GridView3_RowCommand" Height="157px"
                             style="z-index: 1; position: absolute; top: 200px; left: 10px">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>

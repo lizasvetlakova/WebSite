@@ -18,33 +18,35 @@ namespace WebSite
         {
             long idUser;
             string nameUser = "";
-
-            try
+            if (Page.IsValid)
             {
-                DataClasses1DataContext db = new DataClasses1DataContext();
+                try
+                {
+                    DataClasses1DataContext db = new DataClasses1DataContext();
 
-                var selectedUser = (from item in db.Пользователи
-                                    where item.Логин == Convert.ToString(LoginTextBox.Text)
-                                    && item.Пароль == Convert.ToString(PasswordTextBox.Text)
-                                    select item).Single();
-                nameUser = selectedUser.ФИО;
-                idUser = selectedUser.Код_пользователя;
-                Session["IDUser"] = idUser;
-                Session["NameUser"] = nameUser;
-                Session["IDKontr"] = Session["is_admin"] = selectedUser.Роль;
-                if(selectedUser.Роль == 1)
-                {
-                    Response.Redirect("tovar.aspx");
+                    var selectedUser = (from item in db.Пользователи
+                                        where item.Логин == Convert.ToString(LoginTextBox.Text)
+                                        && item.Пароль == Convert.ToString(PasswordTextBox.Text)
+                                        select item).Single();
+                    nameUser = selectedUser.ФИО;
+                    idUser = selectedUser.Код_пользователя;
+                    Session["IDUser"] = idUser;
+                    Session["NameUser"] = nameUser;
+                    Session["IDKontr"] = Session["is_admin"] = selectedUser.Роль;
+                    if (selectedUser.Роль == 1)
+                    {
+                        Response.Redirect("tovar.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("index1.aspx");
+                    }
+
                 }
-                else
+                catch (Exception exception)
                 {
-                    Response.Redirect("index1.aspx");
+                    Label1.Text = "Пароль неверный";
                 }
-                
-            }
-            catch (Exception exception)
-            {
-                Label1.Text = "Пароль неверный";
             }
         }
     }

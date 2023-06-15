@@ -38,7 +38,6 @@ namespace WebSite
                     {
                         Содержание_накладной sod = new Содержание_накладной();
                         sod.Номер_накладной = Convert.ToInt32(Session["Nomer"]);
-                        //int index = row.RowIndex;
                         TextBox kol = (TextBox)row.FindControl("Количество");
                         decimal k = Convert.ToDecimal(kol.Text);
                         decimal c = Convert.ToDecimal(row.Cells[3].Text);

@@ -52,8 +52,7 @@ namespace WebSite
 
                     db.Товары.InsertOnSubmit(товар);
                     db.SubmitChanges();
-                    TextBoxArt.Text = TextBoxName.Text = TextBoxOb.Text =
-                        TextBoxEd.Text = TextBoxPrice.Text = " ";
+                    
                     Errorlabel.Visible = true;
                     Errorlabel.Text = "Товар успешно добавлен";
                     

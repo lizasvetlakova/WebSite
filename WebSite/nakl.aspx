@@ -12,7 +12,7 @@
                 <asp:Button ID="Button1" runat="server" CssClass="buton" Text="Сохранить" OnClick="SaveButton_Click" style="z-index: 1; position: absolute; top: 15px; left: 250px" />
                 <asp:Button ID="Button3" runat="server" CssClass="buton" Text="Провести" OnClick="ProvButton_Click" style="z-index: 1; position: absolute; top: 55px; left: 250px" />
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/image/plus.JPG" CssClass="buton" OnClick="TovarButton_Click" 
-                   style="border-color:#5D7B9D; z-index: 1; position: absolute; top: 158px; left: -60px; width: 20px; height: 20px;"/>
+                   style="border-color:#5D7B9D; z-index: 1; position: absolute; top: 165px; left: -60px; width: 20px; height: 20px;"/>
                
                 <h1 style="left: -29px; top: -60px; width: 380px">Тип накладной: 
                         <asp:DropDownList ID="DropDownList3" runat="server" Height="23px" DataSourceID="SqlDataSource4" DataTextField="Название_накладной" DataValueField="Код_типа" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged">
